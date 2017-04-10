@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :creature do
-    breed
+    breed 'bear-turtle'
     price
     description
     image_url
