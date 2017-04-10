@@ -1,24 +1,6 @@
-# README
+#### The Mythical Mingled Emporium 
+A Turing School of Software and Design Module 2 Group Project
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+The final group project for Module 2 is titled 'Little Shop':  
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+In this project you’ll use Ruby on Rails to build an online commerce platform to facilitate online ordering.
