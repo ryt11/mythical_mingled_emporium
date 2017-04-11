@@ -2,7 +2,7 @@
 <ul class="cart-creatures">
   <% @cart.creatures.each do |creature| %>
     <li id="cart-creature-<%=creature.id%>">
-      <%= image_tag "http://www.funny-emoticons.com/files/funny-animals/hybrid-animals/0.png", size: "32x32" %>
+      <%= image_tag "http://www.funny-emoticons.com/files/funny-animals/hybrid-animals/0.png", size: "100x100" %>
       Breed: <%= link_to creature.breed, creature_path(creature) %>
       <br>
       Description: <%= creature.description %>

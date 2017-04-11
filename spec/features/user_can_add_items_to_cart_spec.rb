@@ -19,6 +19,7 @@ RSpec.feature "User is able to add items to cart" do
 
       expect(current_path).to eq(carts_path)
 
+      save_and_open_page
       expect(page).to have_css("img[src*='0.png']")
       expect(page).to have_content("Breed: #{creature1.breed}")
       expect(page).to have_content("Description: #{creature1.description}")
