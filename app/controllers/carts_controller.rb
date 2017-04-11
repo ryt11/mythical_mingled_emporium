@@ -14,4 +14,15 @@ class CartsController < ApplicationController
 
   def index
   end
+
+  def update
+    if params[:change_quantity] == "increment"
+      @cart.contents[params[:creature_id]] += 1
+    elsif params[:change_quantity] == "decrement"
+      @cart.contents[params[:creature_id]] -= 1
+    end
+    session[:cart] = @cart.contents
+    redirect_to '/carts'
+
+  end
 end

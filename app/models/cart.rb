@@ -29,4 +29,8 @@ class Cart
   def count_of(creature_id)
     contents[creature_id.to_s]
   end
+
+  def subtotal(creature_id)
+    contents[creature_id.to_s] * Creature.find(creature_id).price.to_f
+  end
 end

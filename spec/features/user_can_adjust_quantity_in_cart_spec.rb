@@ -21,7 +21,7 @@ RSpec.feature 'User can adjust quantity' do
 
     scenario "user increases cart quantity" do
       within("li#cart-creature-#{creature1.id}") do
-        expect(page).to have_content("Quantity: 2")
+        expect(page).to have_content('Quantity: 2')
         click_on "Increase Quantity" 
         expect(current_path).to eq "/carts"
         expect(page).to have_content('Quantity: 3')
@@ -34,7 +34,7 @@ RSpec.feature 'User can adjust quantity' do
     scenario "user decreases cart quantity" do
 
       within("li#cart-creature-#{creature1.id}") do
-        expect(page).to have_content("Quantity: 2")
+        expect(page).to have_content('Quantity: 2')
         click_on "Decrease Quantity" 
         expect(current_path).to eq "/carts"
         expect(page).to have_content('Quantity: 1')

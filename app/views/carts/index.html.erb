@@ -8,7 +8,10 @@
       <br>
       Description: <%= creature.description %>
       <br>
-      Price: <%= creature.price.to_f %>
+      Price: <%= @cart.subtotal(creature.id) %>
+      Quantity: <%= @cart.count_of(creature.id) %>
+      <%= button_to "Increase Quantity", update_cart_path(creature_id: creature.id, change_quantity: "increment"), method: "put" %>
+      <%= button_to "Decrease Quantity", update_cart_path(creature_id: creature.id, change_quantity: "decrement"), method: "put" %>
     </li>
   <% end %>
 </ul>
