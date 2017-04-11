@@ -16,6 +16,18 @@ RSpec.describe Creature do
       expect(creature).to respond_to(:price)
       expect(creature).to respond_to(:description)
       expect(creature).to respond_to(:image_url)
+      expect(creature).to respond_to(:categories)
+    end
+  end
+  context 'relationships' do
+    it 'has many categories' do
+
+      creature = Creature.create(breed: "dingo-fox", price: '15.00', description: "this wee fellow lives on Fraser Island")
+      categories = create_list(:category, 2)
+      creature.categories << categories
+
+      expect(creature.categories).to eq(categories)
     end
   end
 end
+
