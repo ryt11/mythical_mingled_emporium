@@ -1,0 +1,8 @@
+<h1><%=@category.name.titleize%></h1>
+<ul class="category-creatures">
+  <% @category.creatures.each do |creature| %>
+  <li>
+    <%= link_to creature.breed, creature_path(creature) %>
+  </li>
+  <% end %>
+</ul>
