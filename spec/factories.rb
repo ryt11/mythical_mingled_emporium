@@ -5,7 +5,9 @@ FactoryGirl.define do
     end
     price '10.00'
     description "This is a description"
-    image_url "http://www.funny-emoticons.com/files/funny-animals/hybrid-animals/0.png"
+    sequence :image_url do |n|
+      "https://robohash.org/#{n}?set=set2"
+    end
   end
   factory :category do
   	sequence :name do |name|
