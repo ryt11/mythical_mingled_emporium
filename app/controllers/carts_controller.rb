@@ -23,6 +23,16 @@ class CartsController < ApplicationController
     end
     session[:cart] = @cart.contents
     redirect_to '/carts'
+  end
 
+  def destroy
+    creature = Creature.find(params[:creature_id])
+
+    @cart.delete_creature(creature.id)
+    session[:cart] = @cart.contents
+
+    flash[:notice] = "You now have deleted #{creature.breed}."
+
+    redirect_back(fallback_location: root_path)
   end
 end

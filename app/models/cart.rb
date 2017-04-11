@@ -16,6 +16,10 @@ class Cart
     contents[creature_id.to_s] += 1
   end
 
+  def delete_creature(creature_id)
+    contents.delete(creature_id.to_s)
+  end
+
   def total_count
     contents.values.sum
   end
