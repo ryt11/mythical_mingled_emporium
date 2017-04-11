@@ -4,6 +4,8 @@ RSpec.describe Creature do
   context 'validations' do
     it { is_expected.to validate_presence_of :breed }
     it { is_expected.to validate_presence_of :price }
+    it { is_expected.to validate_presence_of :description }
+    it { is_expected.to validate_presence_of :image_url }
 
     it { is_expected.to validate_uniqueness_of(:breed).ignoring_case_sensitivity }
   end
@@ -30,4 +32,3 @@ RSpec.describe Creature do
     end
   end
 end
-

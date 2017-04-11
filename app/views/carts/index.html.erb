@@ -1,0 +1,17 @@
+<h1>My Cart</h1>
+<ul class="cart-creatures">
+  <% @cart.creatures.each do |creature| %>
+    <li id="cart-creature-<%=creature.id%>">
+      <%= image_tag creature.image_url, size: "100x100" %>
+      <br>
+      Breed: <%= link_to creature.breed, creature_path(creature) %>
+      <br>
+      Description: <%= creature.description %>
+      <br>
+      Price: <%= creature.price.to_f %>
+    </li>
+  <% end %>
+</ul>
+<div class="cart-total">
+  Total Price: <%= @cart.total_price %>
+</div>

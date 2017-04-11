@@ -1,8 +1,9 @@
 <h1>Creatures</h1>
 <ul class="creatures">
   <% @creatures.each do |creature| %>
-  <li>
+  <li id="creature-<%=creature.id%>">
     <%= link_to creature.breed, creature_path(creature) %>
+    <%= button_to "Add to Cart", carts_path(creature_id: creature.id) %>
   </li>
   <% end %>
 </ul>
