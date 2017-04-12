@@ -9,8 +9,6 @@ RSpec.feature 'User can view creatures' do
 
       expect(current_path).to eq '/creatures'
 
-      # save_and_open_page
-
       within('ul.creatures') do
         expect(page).to have_link c1.breed
         expect(page).to have_link c2.breed
