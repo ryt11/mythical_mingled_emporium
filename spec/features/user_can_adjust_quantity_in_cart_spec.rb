@@ -30,7 +30,8 @@ RSpec.feature 'User can adjust quantity' do
       within("li#cart-creature-#{@creature1.id}") do
         expect(page).to have_content('Quantity: 3')
 
-        expect(page).to have_content('Price: $30.00')
+        expect(page).to have_content('Unit Price: $10.00')
+        expect(page).to have_content('Subtotal: $30.00')
       end
 
       within('div.cart-total') do
@@ -48,7 +49,8 @@ RSpec.feature 'User can adjust quantity' do
 
       within("li#cart-creature-#{@creature1.id}") do
         expect(page).to have_content('Quantity: 1')
-        expect(page).to have_content('Price: $10.00')
+        expect(page).to have_content('Unit Price: $10.00')
+        expect(page).to have_content('Subtotal: $10.00')
       end
 
       within('div.cart-total') do
