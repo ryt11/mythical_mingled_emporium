@@ -8,7 +8,7 @@ RSpec.feature 'User is able to add items to cart' do
       visit '/creatures'
 
       within "li#creature-#{creature1.id}" do
-        click_on "Add to Cart"
+        click_on 'Add to Cart'
       end
       within "li#creature-#{creature2.id}" do
         click_on 'Add to Cart'

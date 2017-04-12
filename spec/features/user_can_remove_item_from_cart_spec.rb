@@ -8,10 +8,10 @@ RSpec.feature 'User is able to remove items from cart' do
       visit '/creatures'
 
       within "li#creature-#{creature1.id}" do
-        click_on "Add to Cart"
+        click_on 'Add to Cart'
       end
       within "li#creature-#{creature2.id}" do
-        click_on "Add to Cart"
+        click_on 'Add to Cart'
       end
       within 'div.nav-wrapper' do
         click_on 'View Cart'
