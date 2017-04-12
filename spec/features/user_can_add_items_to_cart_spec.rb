@@ -22,8 +22,8 @@ RSpec.feature 'User is able to add items to cart' do
       expect(page).to have_css("img[src*='1?set']")
       expect(page).to have_content("Breed: #{creature1.breed}")
       expect(page).to have_content("Description: #{creature1.description}")
-      expect(page).to have_content("Price: #{creature1.price}")
-      expect(page).to have_content("Total Price: #{creature1.price.to_f + creature2.price.to_f}")
+      expect(page).to have_content("Price: $#{creature1.price}0")
+      expect(page).to have_content("Total Price: $#{creature1.price.to_f + creature2.price.to_f}0")
     end
   end
 end

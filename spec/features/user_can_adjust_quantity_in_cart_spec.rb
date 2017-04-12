@@ -7,11 +7,13 @@ RSpec.feature 'User can adjust quantity' do
       @creature2 = create(:creature)
 
       visit '/creatures'
+
       within("li#creature-#{@creature1.id}") do
         click_on 'Add to Cart'
         click_on 'Add to Cart'
       end
       within("li#creature-#{@creature2.id}") do
+
         click_on 'Add to Cart'
       end
       visit cart_path
@@ -27,11 +29,13 @@ RSpec.feature 'User can adjust quantity' do
 
       within("li#cart-creature-#{@creature1.id}") do
         expect(page).to have_content('Quantity: 3')
-        expect(page).to have_content('Price: 30.0')
+
+        expect(page).to have_content('Unit Price: $10.00')
+        expect(page).to have_content('Subtotal: $30.00')
       end
 
       within('div.cart-total') do
-        expect(page).to have_content('Total Price: 40.0')
+        expect(page).to have_content('Total Price: $40.00')
       end
     end
 
@@ -45,11 +49,12 @@ RSpec.feature 'User can adjust quantity' do
 
       within("li#cart-creature-#{@creature1.id}") do
         expect(page).to have_content('Quantity: 1')
-        expect(page).to have_content('Price: 10.0')
+        expect(page).to have_content('Unit Price: $10.00')
+        expect(page).to have_content('Subtotal: $10.00')
       end
 
       within('div.cart-total') do
-        expect(page).to have_content('Total Price: 20.0')
+        expect(page).to have_content('Total Price: $20.00')
       end
     end
   end
