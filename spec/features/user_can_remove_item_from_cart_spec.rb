@@ -17,13 +17,13 @@ RSpec.feature 'User is able to remove items from cart' do
         click_on 'View Cart'
       end
 
-      expect(current_path).to eq(carts_path)
+      expect(current_path).to eq(cart_path)
 
       within("li#cart-creature-#{creature1.id}") do
         click_on 'Remove Item'
       end
 
-      expect(current_path).to eq(carts_path)
+      expect(current_path).to eq(cart_path)
       expect(page).to_not have_content("Breed: #{creature1.breed}")
       expect(page).to have_content("Breed: #{creature2.breed}")
     end
