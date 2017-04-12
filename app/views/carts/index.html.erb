@@ -10,10 +10,11 @@
       <br>
 
       Quantity: <%= @cart.count_of(creature.id) %>
+
       <%= button_to "Increase Quantity", update_cart_path(creature_id: creature.id, change_quantity: "increment"), method: "put" %>
       <%= button_to "Decrease Quantity", update_cart_path(creature_id: creature.id, change_quantity: "decrement"), method: "put" %>
       <br>
-      Price: <%= @cart.subtotal(creature.id) %>
+      Price: <%= number_to_currency @cart.subtotal(creature.id) %>
       <br>
       <%= button_to "Remove Item", delete_cart_item_path(creature_id: creature.id), method: :delete %>
 
@@ -21,5 +22,5 @@
   <% end %>
 </ul>
 <div class="cart-total">
-  Total Price: <%= @cart.total_price %>
+  Total Price: <%= number_to_currency @cart.total_price %>
 </div>
