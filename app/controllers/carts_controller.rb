@@ -15,6 +15,9 @@ class CartsController < ApplicationController
   def index
   end
 
+  def show
+  end
+
   def update
     if params[:change_quantity] == "increment"
       @cart.contents[params[:creature_id]] += 1
@@ -22,7 +25,7 @@ class CartsController < ApplicationController
       @cart.contents[params[:creature_id]] -= 1
     end
     session[:cart] = @cart.contents
-    redirect_to '/carts'
+    redirect_to cart_path
   end
 
   def destroy
@@ -33,6 +36,6 @@ class CartsController < ApplicationController
 
     flash[:notice] = "You now have deleted #{creature.breed}."
 
-    redirect_back(fallback_location: root_path)
+    redirect_to cart_path
   end
 end

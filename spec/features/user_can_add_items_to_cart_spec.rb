@@ -13,11 +13,11 @@ RSpec.feature "User is able to add items to cart" do
       within "li#creature-#{creature2.id}" do
         click_on "Add to Cart"
       end
-      within "div.nav" do
+      within "div.nav-wrapper" do
         click_on "View Cart"
       end
 
-      expect(current_path).to eq(carts_path)
+      expect(current_path).to eq(cart_path)
 
       expect(page).to have_css("img[src*='1?set']")
       expect(page).to have_content("Breed: #{creature1.breed}")
