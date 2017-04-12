@@ -1,26 +1,26 @@
 require 'rails_helper'
 
-RSpec.feature "User is able to remove items from cart" do
-  context "User is not logged in" do
-    scenario "a user removes an item from their cart" do
+RSpec.feature 'User is able to remove items from cart' do
+  context 'User is not logged in' do
+    scenario 'a user removes an item from their cart' do
       creature1, creature2 = create_list(:creature, 2)
 
       visit '/creatures'
 
       within "li#creature-#{creature1.id}" do
-        click_on "Add to Cart"
+        click_on 'Add to Cart'
       end
       within "li#creature-#{creature2.id}" do
-        click_on "Add to Cart"
+        click_on 'Add to Cart'
       end
-      within "div.nav" do
-        click_on "View Cart"
+      within 'div.nav-wrapper' do
+        click_on 'View Cart'
       end
 
       expect(current_path).to eq(carts_path)
 
       within("li#cart-creature-#{creature1.id}") do
-        click_on "Remove Item"
+        click_on 'Remove Item'
       end
 
       expect(current_path).to eq(carts_path)
