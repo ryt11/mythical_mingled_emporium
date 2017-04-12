@@ -9,7 +9,7 @@ RSpec.feature 'User can adjust quantity' do
       @creature2 = create(:creature)
 
       visit '/creatures'
-       within("li#creature-#{@creature1.id}") do
+      within("li#creature-#{@creature1.id}") do
         click_on 'Add to Cart'
         click_on 'Add to Cart'
       end
@@ -32,7 +32,6 @@ RSpec.feature 'User can adjust quantity' do
       end
     end
     scenario 'user decreases cart quantity' do
-
       within("li#cart-creature-#{@creature1.id}") do
         expect(page).to have_content('Quantity: 2')
         click_on 'Decrease Quantity'
