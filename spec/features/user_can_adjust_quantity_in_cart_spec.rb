@@ -2,8 +2,6 @@ require 'rails_helper'
 
 RSpec.feature 'User can adjust quantity' do
   context 'user is not logged in and there is at least one item in the cart' do
-    attr_reader :creature1
-
     before do
       @creature1 = create(:creature)
       @creature2 = create(:creature)
