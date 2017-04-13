@@ -4,6 +4,7 @@ RSpec.feature 'User can view a creature show page' do
   context 'Where a creature is retired' do
     scenario 'From a past order page' do
       creature = create(:creature)
+      creature.retired!
       user = create(:user)
       user.orders << create(:order)
       order = user.orders.first
@@ -16,7 +17,7 @@ RSpec.feature 'User can view a creature show page' do
       expect(current_path).to eq creature_path(creature)
 
       expect(page).to_not have_button 'Add to Cart'
-      expect(page).to have_content 'Item Retired'
+      expect(page).to have_content 'Creature Retired'
     end
   end
 
@@ -31,7 +32,7 @@ RSpec.feature 'User can view a creature show page' do
       expect(current_path).to eq creature_path(creature)
 
       expect(page).to have_css("img[src*='#{creature.id}?set']")
-      expect(page).to have_content "Breed: #{creature.breed}"
+      expect(page).to have_content creature.breed
       expect(page).to have_content "Price: $#{creature.price}0"
       expect(page).to have_content "Description: #{creature.description}"
 
