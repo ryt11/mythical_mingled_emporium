@@ -1,12 +1,19 @@
 Rails.application.routes.draw do
-  root to: 'creatures#index'
+  get 'users/new'
+
+  get 'sessions/new'
+
+  root to: 'application#landing'
 
   resources :creatures, only: [:index, :show]
-  # resources :carts, only: [:index, :create, :update]
+  resources :categories, only: [:index]
   resource :cart, only: [:show, :create, :update, :destroy]
+  resources :users, only: [:new, :create]
 
-  # put '/cart_creature', to: "carts#update", as: "update_cart"
-  # delete '/cart_creature', to: "carts#destroy", as: "delete_cart_item"
+  get '/dashboard', to: 'users#show'
+  get '/login', to: 'sessions#new'
+  post '/login', to: 'sessions#create'
+  delete '/logout', to: 'sessions#destroy'
 
   get '/:category', to: "categories#show", as: "category"
 end
