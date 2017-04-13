@@ -26,7 +26,7 @@ class Cart
 
   def total_price
     creatures.reduce(0) do |sum, creature|
-      sum + creature.price
+      sum + subtotal(creature.id)
     end
   end
 
