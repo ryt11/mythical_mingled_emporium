@@ -8,7 +8,8 @@ class SessionsController < ApplicationController
       flash[:success] = 'Login successful'
       redirect_to dashboard_path
     else
-      flash[:failure] = 'Login failed'
+      flash.now[:failure] = 'Login failed'
+      render :new
     end
   end
 
