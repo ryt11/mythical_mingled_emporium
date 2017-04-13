@@ -14,4 +14,18 @@ FactoryGirl.define do
   		"Category #{name}"
   	end
   end
+  factory :order do 
+    user
+    total '100.0'
+    contents 'these are contents'
+  end
+  factory :user do 
+    sequence :username do |username|
+      "Bob #{username}"
+    end
+    email 'bob@ski.com'
+    password 'bobs'
+    password_confirmation 'bobs'
+    role 'user'
+  end
 end
