@@ -24,14 +24,14 @@ RSpec.describe User do
   end
 
   context 'relationships' do
-    xit 'has many orders' do
+    it 'has many orders' do
       user = User.create(username: 'Billybob',
                          email: 'billybob@bbc.com',
                          password: 'hunter2',
                          password_confirmation: 'hunter2',
                          role: 'user')
 
-      orders = create_list(:order, 2)
+      orders = create_list(:order, 2, user: user)
       user.orders << orders
 
       expect(user.orders).to eq(orders)
