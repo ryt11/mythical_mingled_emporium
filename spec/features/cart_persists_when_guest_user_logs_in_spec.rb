@@ -28,7 +28,7 @@ RSpec.feature 'Guest user cart functionality' do
     fill_in 'user[password_confirmation]', with: 'hunter2'
 
     click_on 'Sign Up!'
-    
+
     click_on 'View Cart'
 
     expect(page).to have_content("Breed: #{creature1.breed}")

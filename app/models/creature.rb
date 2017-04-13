@@ -9,4 +9,6 @@ class Creature < ApplicationRecord
   has_many :categories, through: :creatures_categories
   has_many :order_creatures
   has_many :orders, through: :order_creatures
+
+  enum status: %w(active retired)
 end
