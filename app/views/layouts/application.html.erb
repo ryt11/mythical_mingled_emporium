@@ -21,13 +21,20 @@
         <ul id="nav-mobile" class="right hide-on-med-and-down">
           <li><a href="sass.html">Place Holder 1</a></li>
           <li><a href="badges.html">Place Holder 2</a></li>
+          <% if current_user %>
+            <li>Logged in as <%= link_to current_user.username, dashboard_path %></li>
+            <li><%= button_to "Logout", logout_path, method: :delete %></li>
+          <% end %>
+
           <li><%= link_to "View Cart", cart_path %></li>
         </ul>
       </div>
     </nav>
+    <div class="flash">
     <% flash.each do |type, message| %>
       <%= content_tag :div, message.html_safe, class: type %>
     <% end %>
+    </div>
     <%= yield %>
   </body>
 </html>
