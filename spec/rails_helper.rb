@@ -61,6 +61,7 @@ RSpec.configure do |config|
 
 
   config.before(:each) do
+    FactoryGirl.reload
     begin
       DatabaseCleaner.start
     ensure

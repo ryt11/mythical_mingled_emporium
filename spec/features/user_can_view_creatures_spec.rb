@@ -13,6 +13,10 @@ RSpec.feature 'User can view creatures' do
         expect(page).to have_link c1.breed
         expect(page).to have_link c2.breed
         expect(page).to have_selector('li', count: 2)
+        expect(page).to have_css("img[src*='#{c1.id}?set']")
+        expect(page).to have_css("img[src*='#{c2.id}?set']")
+        expect(page).to have_content("Price: #{c1.price}")
+        expect(page).to have_content("Price: #{c2.price}")
       end
     end
   end
