@@ -3,7 +3,6 @@ require 'rails_helper'
 RSpec.feature 'User can visit a landing page' do
   context 'The user is not logged in' do
     scenario 'The user visits the root path' do
-
       visit root_path
 
       within 'h1' do
