@@ -60,7 +60,7 @@ RSpec.configure do |config|
   # config.filter_gems_from_backtrace("gem name")
 
 
-  config.before(:suite) do
+  config.before(:each) do
     begin
       DatabaseCleaner.start
     ensure
