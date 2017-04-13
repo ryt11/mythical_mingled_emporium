@@ -21,7 +21,9 @@ FactoryGirl.define do
     user
     total '100.0'
     status 'completed'
+    creatures []
   end
+
   factory :user do
     sequence :username do |username|
       "Bob #{username}"
