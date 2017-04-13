@@ -29,10 +29,12 @@ class CartsController < ApplicationController
   def destroy
     creature = Creature.find(params[:creature_id])
 
+    c_link = view_context.link_to(creature.breed, creature_path(creature))
+
     @cart.delete_creature(creature.id)
     session[:cart] = @cart.contents
 
-    flash[:notice] = "Successfully removed #{view_context.link_to(creature.breed, creature_path(creature))} from your cart."
+    flash[:notice] = "Successfully removed #{c_link} from your cart."
 
     redirect_to cart_path
   end
