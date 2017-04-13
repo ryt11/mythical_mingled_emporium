@@ -4,4 +4,6 @@ class Order < ApplicationRecord
   has_many :creatures, through: :order_creatures
   validates :total, presence: true
   validates :status, presence: true
+
+  enum status: %w(ordered paid cancelled completed)
 end
