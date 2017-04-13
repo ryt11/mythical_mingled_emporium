@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170413014050) do
+ActiveRecord::Schema.define(version: 20170413030549) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,12 +39,20 @@ ActiveRecord::Schema.define(version: 20170413014050) do
     t.index ["creature_id"], name: "index_creatures_categories_on_creature_id", using: :btree
   end
 
+  create_table "order_creatures", force: :cascade do |t|
+    t.integer "quantity"
+    t.integer "creature_id"
+    t.integer "order_id"
+    t.index ["creature_id"], name: "index_order_creatures_on_creature_id", using: :btree
+    t.index ["order_id"], name: "index_order_creatures_on_order_id", using: :btree
+  end
+
   create_table "orders", force: :cascade do |t|
-    t.string   "contents"
     t.money    "total",      scale: 2
     t.integer  "user_id"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
+    t.string   "status"
     t.index ["user_id"], name: "index_orders_on_user_id", using: :btree
   end
 
@@ -60,5 +68,7 @@ ActiveRecord::Schema.define(version: 20170413014050) do
 
   add_foreign_key "creatures_categories", "categories"
   add_foreign_key "creatures_categories", "creatures"
+  add_foreign_key "order_creatures", "creatures"
+  add_foreign_key "order_creatures", "orders"
   add_foreign_key "orders", "users"
 end

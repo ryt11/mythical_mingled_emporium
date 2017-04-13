@@ -27,7 +27,7 @@ RSpec.feature 'User can view past orders' do
       end
     end
 
-    xscenario 'can click a list item to link to the past order' do
+    scenario 'can click a list item to link to the past order' do
       within("li#order-#{@order1.id}") do
         click_on(@order1.id)
       end

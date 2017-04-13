@@ -5,28 +5,27 @@ RSpec.feature 'User can view a single orders show page' do
     scenario 'The user can view the details of their past order' do
       user = create :user
       order = create :order
-      creature = create :creature
-      order.creatures << creature
-      user.orders << order
-      price = "Total Price: $#{creature1.price.to_f + creature2.price.to_f}0"
-      status = "Order Status: Completed on #{order.updated_at}"
+      creature1, creature2 = create_list(:creature, 2)
+      OrderCreature.create(order: order, creature: creature1, quantity: 2)
+      OrderCreature.create(order: order, creature: creature2, quantity: 2)
 
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
       visit orders_path
-      click_on "li#order-#{order.id}" # this may not work in this format
+      click_on order.id
 
       expect(current_path).to eq(order_path(order))
+      expect(page).to have_content("Order Placed On: #{order.created_at}")
 
-      within "ul.creatures li#creature-#{creature.id}" do
-        expect(page).to have_content("Order Placed On: #{order.created_at}")
-        expect(page).to have_css("img[src*='1?set']")
-        expect(page).to have_link(creature.breed)
+      within "li#creature-#{creature1.id}" do
+        expect(page).to have_css("img[src*='?set']")
+        expect(page).to have_link(creature1.breed)
         expect(page).to have_content("Unit Price: $#{creature1.price}0")
-        expect(page).to have_content('Quantity: 1')
-        expect(page).to have_content(price)
-        expect(page).to have_content(status)
+        expect(page).to have_content('Quantity: 2')
       end
+
+      expect(page).to have_content("Total: #{order.total}")
+      expect(page).to have_content("Status: #{order.status}")
     end
   end
 end

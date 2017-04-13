@@ -17,7 +17,7 @@ FactoryGirl.define do
   factory :order do 
     user
     total '100.0'
-    contents 'these are contents'
+    status 'completed'
   end
   factory :user do 
     sequence :username do |username|

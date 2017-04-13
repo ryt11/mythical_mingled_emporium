@@ -4,7 +4,7 @@ RSpec.feature 'User is able to add items to cart' do
   context 'User is not logged in' do
     scenario 'a user adds an item to their cart' do
       creature1, creature2 = create_list(:creature, 2)
-
+      total_price = "$#{creature1.price.to_f + creature2.price.to_f}0"
       visit '/creatures'
 
       within "li#creature-#{creature1.id}" do
@@ -21,10 +21,9 @@ RSpec.feature 'User is able to add items to cart' do
 
       expect(page).to have_css("img[src*='1?set']")
       expect(page).to have_content("Breed: #{creature1.breed}")
-      expect(page).to have_content("Description: #{creature1.description}") # Do we want descriptions in the cart? I say no.
       expect(page).to have_content("Unit Price: $#{creature1.price}0")
-      expect(page).to have_content("Quantity: 1") # Do we want descriptions in the cart? I say no.
-      expect(page).to have_content("Total Price: $#{creature1.price.to_f + creature2.price.to_f}0")
+      expect(page).to have_content('Quantity: 1')
+      expect(page).to have_content("Total Price: #{total_price}")
     end
   end
 end
