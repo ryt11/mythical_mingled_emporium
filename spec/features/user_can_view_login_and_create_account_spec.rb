@@ -1,17 +1,20 @@
 require 'rails_helper'
 
-RSpec.feature 'User can login successfully' do 
+RSpec.feature 'User can login successfully' do
   context 'User is a visitor' do
-    scenario 'User can view a login form page' do 
-      visit '/'
+    scenario 'User can view a login form page' do
+      visit root_path
+
       click_on 'Login'
+
       expect(current_path).to eq '/login'
       expect(page).to has_field?('user[username]')
       expect(page).to has_field?('user[password]')
       expect(page).to has_field?('user[password_confirmation]')
       expect(page).to have_button('Create Account')
     end
-    scenario 'User can create a new account' do 
+
+    scenario 'User can create a new account' do
       visit '/login'
       click_on 'Create Account'
       fill_in 'user[username]', with: 'Billybob'
