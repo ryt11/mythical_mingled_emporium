@@ -22,15 +22,33 @@ RSpec.describe Creature do
       expect(creature).to respond_to(:categories)
     end
   end
+
   context 'relationships' do
     it 'has many categories' do
-      creature = Creature.create(breed: 'dingo-fox',
-                                 price: '15.00',
-                                 description: 'this wee fellow lives on Mars')
+      creature = Creature.create!(breed: 'dingo-fox',
+                                  price: '15.00',
+                                  description: 'this wee fellow lives on Mars',
+                                  image_url: 'burp')
       categories = create_list(:category, 2)
       creature.categories << categories
 
       expect(creature.categories).to eq(categories)
+    end
+  end
+
+  context 'enums' do
+    it 'has a default status' do
+      creature = Creature.create!(breed: 'dingo-fox',
+                                  price: '15.00',
+                                  description: 'this wee fellow lives on Mars',
+                                  image_url: 'burp')
+
+      expect(creature).to respond_to(:status)
+      expect(creature.status).to eq('active')
+
+      creature.retired!
+
+      expect(creature.status).to eq('retired')
     end
   end
 end

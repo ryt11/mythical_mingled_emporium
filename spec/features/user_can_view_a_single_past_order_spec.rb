@@ -18,7 +18,7 @@ RSpec.feature 'User can view a single orders show page' do
       expect(page).to have_content("Order Placed On: #{order.created_at}")
 
       within "li#creature-#{creature1.id}" do
-        expect(page).to have_css("img[src*='?set']")
+        expect(page).to have_css("img[src*='#{creature1.id}?set']")
         expect(page).to have_link(creature1.breed)
         expect(page).to have_content("Unit Price: $#{creature1.price}0")
         expect(page).to have_content('Quantity: 2')

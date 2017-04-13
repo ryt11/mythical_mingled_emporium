@@ -5,21 +5,26 @@ FactoryGirl.define do
     end
     price '10.00'
     description "This is a description"
-    sequence :image_url do |n|
-      "https://robohash.org/#{n}?set=set2"
-    end
+    image_url
   end
+
+  sequence :image_url do |n|
+    "https://robohash.org/#{n}?set=set2"
+  end
+
   factory :category do
   	sequence :name do |name|
   		"Category #{name}"
   	end
   end
-  factory :order do 
+  factory :order do
     user
     total '100.0'
     status 'completed'
+    creatures []
   end
-  factory :user do 
+
+  factory :user do
     sequence :username do |username|
       "Bob #{username}"
     end
