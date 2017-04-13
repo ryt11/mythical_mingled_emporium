@@ -12,7 +12,8 @@ RSpec.feature 'User can view a single orders show page' do
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
       visit orders_path
-      click_on order.id
+
+      click_on "Order #: #{order.id}"
 
       expect(current_path).to eq(order_path(order))
       expect(page).to have_content("Order Placed On: #{order.created_at}")
