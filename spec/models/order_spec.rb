@@ -41,4 +41,25 @@ RSpec.describe Order do
       expect(order.creatures).to eq([creature1, creature2])
     end
   end
+
+  context 'enums' do
+    before :each do
+      user = create :user
+      @order = user.orders.create(total: '10.0')
+    end
+
+    it 'has a default status' do
+      expect(@order).to respond_to :status
+      expect(@order.status).to eq 'ordered'
+    end
+
+    it 'its status can be ...' do
+      @order.paid!
+      expect(@order.status).to eq 'paid'
+      @order.cancelled!
+      expect(@order.status).to eq 'cancelled'
+      @order.completed!
+      expect(@order.status).to eq 'completed'
+    end
+  end
 end
