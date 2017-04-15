@@ -1,8 +1,8 @@
 require 'rails_helper'
 
-RSpec.feature 'User is not able to see other users information' do 
-  context 'a user is logged in' do 
-    before do 
+RSpec.feature 'User Permissions' do
+  context 'a user is logged in' do
+    before do
       user1, user2 = create_list(:user, 2)
       @order1, @order2, @order3, @order4 = create_list(:order_with_diff_totals, 4)
       user1.orders << [@order1, @order2]
@@ -23,11 +23,13 @@ RSpec.feature 'User is not able to see other users information' do
         expect(page).to_not have_link("Order #: #{@order3.id}")
         expect(page).to_not have_content(@order3.total)
       end
+    end
 
+    scenario 'a user cannot view admin dashboard' do
       visit admin_dashboard_path
 
-      expect(user.admin?).to eq(:false) #check simple data type
-      expect(current_path).to_not 
+      expect(response).to have_http_status(404)
+      expect(page).to_not have_content('Admin Dashboard')
     end
   end
 end
