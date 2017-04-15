@@ -1,11 +1,8 @@
 <h1>Creatures</h1>
-<ul class="creatures">
-  <% @creatures.each do |creature| %>
-    <li id="creature-<%=creature.id%>">
-      <%= image_tag creature.image_url %><br>
-      Breed: <%= link_to creature.breed, creature_path(creature) %><br>
-      Price: <%= creature.price %><br>
-      <%= button_to "Add to Cart", cart_path(creature_id: creature.id) %>
-    </li>
-  <% end %>
-</ul>
+<div class="creatures">
+  <div class="row">
+    <% @creatures.each do |creature| %>
+      <%= creature_card(creature) %>
+    <% end %>
+  </div>
+</div>
