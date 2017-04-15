@@ -4,7 +4,8 @@ RSpec.feature 'User Permissions' do
   context 'a user is logged in' do
     before do
       user1, user2 = create_list(:user, 2)
-      @order1, @order2, @order3, @order4 = create_list(:order_with_diff_totals, 4)
+      orders = create_list(:order_with_diff_totals, 4)
+      @order1, @order2, @order3, @order4 = orders
       user1.orders << [@order1, @order2]
       user2.orders << [@order3, @order4]
 
@@ -28,7 +29,8 @@ RSpec.feature 'User Permissions' do
     scenario 'a user cannot view admin dashboard' do
       visit admin_dashboard_path
 
-      expect(response).to have_http_status(404)
+      expect(page).to have_http_status(404)
+      expect(page).to have_content("The page you were looking for doesn't exis")
       expect(page).to_not have_content('Admin Dashboard')
     end
   end
