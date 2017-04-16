@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       flash[:success] = 'Login successful'
 
-      redirect_to dashboard_path
+      redirect_to current_admin? ? admin_dashboard_path : dashboard_path
     else
       flash.now[:failure] = 'Login failed'
 

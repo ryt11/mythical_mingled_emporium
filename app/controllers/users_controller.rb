@@ -19,7 +19,13 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = current_user
+    if current_user
+      @user = current_user
+    else
+      flash[:failure] = 'Oops! You must be logged in to do that.'
+
+      redirect_to login_path
+    end
   end
 
   private
