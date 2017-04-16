@@ -7,10 +7,10 @@ RSpec.feature 'User is able to add items to cart' do
       total_price = "$#{creature1.price.to_f + creature2.price.to_f}0"
       visit '/creatures'
 
-      within "li#creature-#{creature1.id}" do
+      within "#creature-#{creature1.id}" do
         click_on 'Add to Cart'
       end
-      within "li#creature-#{creature2.id}" do
+      within "#creature-#{creature2.id}" do
         click_on 'Add to Cart'
       end
       within 'div.nav-wrapper' do

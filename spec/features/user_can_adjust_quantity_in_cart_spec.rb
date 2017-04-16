@@ -8,11 +8,11 @@ RSpec.feature 'User can adjust quantity' do
 
       visit '/creatures'
 
-      within("li#creature-#{@creature1.id}") do
+      within("#creature-#{@creature1.id}") do
         click_on 'Add to Cart'
         click_on 'Add to Cart'
       end
-      within("li#creature-#{@creature2.id}") do
+      within("#creature-#{@creature2.id}") do
 
         click_on 'Add to Cart'
       end
@@ -20,14 +20,14 @@ RSpec.feature 'User can adjust quantity' do
     end
 
     scenario 'user increases cart quantity' do
-      within("li#cart-creature-#{@creature1.id}") do
+      within("#cart-creature-#{@creature1.id}") do
         expect(page).to have_content('Quantity: 2')
         click_on 'Increase Quantity'
       end
 
       expect(current_path).to eq '/cart'
 
-      within("li#cart-creature-#{@creature1.id}") do
+      within("#cart-creature-#{@creature1.id}") do
         expect(page).to have_content('Quantity: 3')
 
         expect(page).to have_content('Unit Price: $10.00')
@@ -40,14 +40,14 @@ RSpec.feature 'User can adjust quantity' do
     end
 
     scenario 'user decreases cart quantity' do
-      within("li#cart-creature-#{@creature1.id}") do
+      within("#cart-creature-#{@creature1.id}") do
         expect(page).to have_content('Quantity: 2')
         click_on 'Decrease Quantity'
       end
 
       expect(current_path).to eq '/cart'
 
-      within("li#cart-creature-#{@creature1.id}") do
+      within("#cart-creature-#{@creature1.id}") do
         expect(page).to have_content('Quantity: 1')
         expect(page).to have_content('Unit Price: $10.00')
         expect(page).to have_content('Subtotal: $10.00')

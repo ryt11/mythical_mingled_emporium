@@ -8,10 +8,10 @@ RSpec.feature 'User is able to remove items from cart' do
 
       visit '/creatures'
 
-      within "li#creature-#{creature1.id}" do
+      within "#creature-#{creature1.id}" do
         click_on 'Add to Cart'
       end
-      within "li#creature-#{creature2.id}" do
+      within "#creature-#{creature2.id}" do
         click_on 'Add to Cart'
       end
 
@@ -21,7 +21,7 @@ RSpec.feature 'User is able to remove items from cart' do
 
       expect(current_path).to eq(cart_path)
 
-      within("li#cart-creature-#{creature1.id}") do
+      within("#cart-creature-#{creature1.id}") do
         click_on 'Remove Item'
       end
 

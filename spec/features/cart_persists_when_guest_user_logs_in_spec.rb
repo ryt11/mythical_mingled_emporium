@@ -6,10 +6,10 @@ RSpec.feature 'Guest user cart functionality' do
 
     visit '/creatures'
 
-    within "li#creature-#{creature1.id}" do
+    within "#creature-#{creature1.id}" do
       click_on 'Add to Cart'
     end
-    within "li#creature-#{creature2.id}" do
+    within "#creature-#{creature2.id}" do
       click_on 'Add to Cart'
     end
 
