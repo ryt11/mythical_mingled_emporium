@@ -74,21 +74,21 @@ RSpec.feature 'Admin orders' do
         expect(page).to have_content 'Status: Ordered'
 
         click_on 'Mark as paid'
-
-        expect(current_path).to eq orders_path
-        expect(page).to have_content 'Status: Paid'
-
-        expect(orders[1].status).to eq 'paid'
       end
 
+      expect(current_path).to eq admin_orders_path
+      
+      within "tr#order-#{orders[1].id}" do
+        expect(page).to have_content 'Status: Paid'
+      end
 
       within "tr#order-#{orders[2].id}" do
         click_on 'Cancel'
+      end
+        expect(current_path).to eq admin_orders_path
 
-        expect(current_path).to eq orders_path
+      within "tr#order-#{orders[2].id}" do
         expect(page).to have_content 'Status: Cancelled'
-
-        expect(orders[2].status).to eq 'cancelled'
       end
 
       within "tr#order-#{orders[4].id}" do
@@ -96,19 +96,21 @@ RSpec.feature 'Admin orders' do
         expect(page).to have_content 'Status: Paid'
 
         click_on 'Mark as completed'
+      end
 
-        expect(current_path).to eq orders_path
+      expect(current_path).to eq admin_orders_path
+
+      within "tr#order-#{orders[4].id}" do
         expect(page).to have_content 'Status: Completed'
-
-        expect(orders[4].status).to eq 'completed'
       end
 
       within "tr#order-#{orders[5].id}" do
         click_on 'Cancel'
+      end
+        expect(current_path).to eq admin_orders_path
 
-        expect(current_path).to eq orders_path
-
-        expect(orders[5].status).to eq 'cancelled'
+      within "tr#order-#{orders[5].id}" do
+        expect(page).to have_content 'Status: Cancelled'
       end
 
       within "tr#order-#{orders[7].id}" do

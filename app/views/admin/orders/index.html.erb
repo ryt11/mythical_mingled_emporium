@@ -16,8 +16,9 @@
     <br>
     Total: <%= number_to_currency order.total %>
     Status: <%= order.status.titleize %>
-    <%= link_to 'Cancel', admin_order_path, method: :put unless order.cancelled? %>
-    <%= link_to 'Mark as paid', admin_order_path, method: :put if order.ordered? %>
+    <%= link_to 'Cancel', admin_order_path(order, status: 'cancelled'), method: :put unless order.cancelled? || order.completed? %>
+    <%= link_to 'Mark as paid', admin_order_path(order, status: 'paid'), method: :put if order.ordered? %>
+    <%= link_to 'Mark as completed', admin_order_path(order, status: 'completed'), method: :put if order.paid? %>
   </tr>
   <% end %>
 </table>
