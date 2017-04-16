@@ -5,6 +5,7 @@ RSpec.feature 'User can view a single orders show page' do
     scenario 'The user can view the details of their past order' do
       user = create :user
       order = create :order
+      user.orders << order
       creature1, creature2 = create_list(:creature, 2)
       OrderCreature.create(order: order, creature: creature1, quantity: 2)
       OrderCreature.create(order: order, creature: creature2, quantity: 2)

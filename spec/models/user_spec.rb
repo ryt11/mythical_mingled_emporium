@@ -37,4 +37,18 @@ RSpec.describe User do
       expect(user.orders).to eq(orders)
     end
   end
+
+
+  context 'enums' do
+    let(:user) { build :user }
+
+    it 'has a default role of user' do
+      expect(user.role).to eq 'user'
+    end
+
+    it 'can also be admin' do
+      user.admin!
+      expect(user.role).to eq 'admin'
+    end
+  end
 end

@@ -1,0 +1,11 @@
+<h1>Edit Admin Info</h1>
+
+<%= form_for @admin, method: 'put', url: admin_update_path do |f|  %>
+
+  <%= f.label :username  %>
+  <%= f.text_field :username %>
+  <%= f.label :email %>
+  <%= f.email_field :email %>
+  <%= f.submit %>
+
+<% end %>
