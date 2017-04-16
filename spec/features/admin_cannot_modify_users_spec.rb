@@ -16,8 +16,6 @@ RSpec.feature 'Admin can modify her account' do
 
       click_on 'Edit my Info'
 
-      apc = admin.password_confirmation
-
       expect(current_path).to eq(admin_edit_path)
       expect(find_field('user[username]').value).to eq admin.username
       expect(find_field('user[email]').value).to eq admin.email
@@ -25,7 +23,6 @@ RSpec.feature 'Admin can modify her account' do
       fill_in 'user[username]', with: 'STINKPETER'
 
       click_on 'Update User'
-
 
       expect(current_path).to eq(admin_dashboard_path)
       expect(page).to have_content('Username: STINKPETER')
