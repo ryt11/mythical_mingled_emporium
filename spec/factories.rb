@@ -22,6 +22,11 @@ FactoryGirl.define do
     total '100.0'
     status 'completed'
     creatures []
+    factory :order_with_diff_totals do
+      sequence :total do |t|
+        (100 * t).to_s
+      end
+    end
   end
 
   factory :user do
