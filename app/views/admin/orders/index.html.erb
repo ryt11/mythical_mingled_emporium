@@ -1,10 +1,10 @@
 <h1>Admin Orders</h1>
 <div class="filters">
-  <%= link_to "All: #{@orders.count}", admin_orders_path %>
-  <%= link_to "Ordered: #{@orders.ordered.count}", admin_orders_path(filter: 'ordered') %>
-  <%= link_to "Paid: #{@orders.paid.count}", admin_orders_path(filter: 'paid') %>
-  <%= link_to "Completed: #{@orders.completed.count}", admin_orders_path(filter: 'completed') %>
-  <%= link_to "Cancelled: #{@orders.cancelled.count}", admin_orders_path(filter: 'cancelled') %>
+  <%= link_to "All: #{@all_orders.count}", admin_orders_path %>
+  <%= link_to "Ordered: #{@all_orders.ordered.count}", admin_orders_path(filter: 'ordered') %>
+  <%= link_to "Paid: #{@all_orders.paid.count}", admin_orders_path(filter: 'paid') %>
+  <%= link_to "Completed: #{@all_orders.completed.count}", admin_orders_path(filter: 'completed') %>
+  <%= link_to "Cancelled: #{@all_orders.cancelled.count}", admin_orders_path(filter: 'cancelled') %>
 </div>
 <table class="orders">
   <% @orders.each do |order| %>

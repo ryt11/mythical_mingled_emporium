@@ -10,7 +10,14 @@ class OrdersController < ApplicationController
   end
 
   def show
-    @order = Order.find(params[:id])
+    order = Order.find(params[:id])
+    unless order.user_id == session[:user_id] || current_admin?
+      flash[:failure] = 'Order doesnt exist'
+
+      redirect_to orders_path
+    else
+      @order = order
+    end
   end
 
   def create
