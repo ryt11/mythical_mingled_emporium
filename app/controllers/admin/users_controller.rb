@@ -11,7 +11,11 @@ class Admin::UsersController < Admin::BaseController
     redirect_to admin_dashboard_path
   end
 
-  private 
+  def index
+    @users = User.all
+  end
+
+  private
 
   def user_params
     params.require(:user).permit(:username, :email)
