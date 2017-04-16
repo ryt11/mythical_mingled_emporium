@@ -1,6 +1,12 @@
 class OrdersController < ApplicationController
   def index
-    @orders = Order.all
+    if current_user
+      @orders = current_user.orders
+    else
+      flash[:failure] = 'Oops! You must be logged in to do that.'
+
+      redirect_to login_path
+    end
   end
 
   def show
