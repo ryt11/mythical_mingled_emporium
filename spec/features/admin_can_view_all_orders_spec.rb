@@ -22,7 +22,7 @@ RSpec.feature 'Admin orders' do
 
       click_on 'Orders'
 
-      expect(current_path).to eq orders_path
+      expect(current_path).to eq admin_orders_path
     end
 
     scenario 'Admin views all orders' do
@@ -52,7 +52,7 @@ RSpec.feature 'Admin orders' do
       expect(page).to have_link("Order #: #{orders[9].id}")
       expect(page).to_not have_link("Order #: #{orders[8].id}")
 
-      click_on 'View All'
+      click_on 'All'
 
       expect(page).to have_link("Order #: #{orders[9].id}")
       expect(page).to have_link("Order #: #{orders[8].id}")
@@ -105,13 +105,11 @@ RSpec.feature 'Admin orders' do
       within 'order-<%= order[7].id%>' do
         expect(page).to_not have_link 'Cancel'
         expect(page).to_not have_link 'Mark as completed'
-        expect(page).to_not have_link 'Mark as cancelled'
       end
 
       within 'order-<%= order[9].id%>' do
         expect(page).to_not have_link 'Cancel'
         expect(page).to_not have_link 'Mark as completed'
-        expect(page).to_not have_link 'Mark as cancelled'
       end
     end
   end

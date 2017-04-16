@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     get '/dashboard/edit', to: 'users#edit', as: 'edit'
     put '/dashboard/update', to: 'users#update', as: 'update'
     get '/users', to: 'users#index', as: 'users'
+    get '/orders', to: 'orders#index', as: 'orders'
   end
 
   get '/dashboard', to: 'users#show'
