@@ -1,3 +1,5 @@
 class Admin::UsersController < Admin::BaseController
-  def show; end
+  def show
+    @admin = current_user
+  end
 end
