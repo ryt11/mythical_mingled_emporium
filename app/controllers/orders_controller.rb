@@ -11,7 +11,7 @@ class OrdersController < ApplicationController
 
   def show
     order = Order.find(params[:id])
-    unless order.user_id == session[:user_id] || current_admin?
+    unless order.user_id == current_user.id || current_admin?
       flash[:failure] = 'Order doesnt exist'
 
       redirect_to orders_path

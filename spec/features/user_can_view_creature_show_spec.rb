@@ -10,6 +10,8 @@ RSpec.feature 'User can view a creature show page' do
       order = user.orders.first
       OrderCreature.create(order: order, creature: creature, quantity: 2)
 
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+
       visit order_path(order)
 
       click_on creature.breed
