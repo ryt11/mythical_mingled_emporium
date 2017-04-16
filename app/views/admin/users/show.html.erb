@@ -1,1 +1,15 @@
 <h1> Admin Dashboard </h1>
+
+<div class="profile-info">
+  Username: <%= @admin.username %>
+  <br>
+  Email: <%= @admin.email %>
+  <br>
+  Role: <%= @admin.role %>
+</div>
+<br>
+<%= link_to 'Edit my Info', admin_edit_path, class: 'btn' %>
+<br>
+<%= link_to 'Users', admin_users_path, class: 'btn' %>
+<br>
+<%= link_to 'Orders', admin_orders_path, class: 'btn' %>

@@ -11,6 +11,9 @@ RSpec.feature 'Admin can view dashboard' do
       within('h1') do
         expect(page).to have_content('Admin Dashboard')
       end
+      expect(page).to have_content("Username: #{admin.username}")
+      expect(page).to have_content("Email: #{admin.email}")
+      expect(page).to have_content("Role: #{admin.role}")
     end
   end
 end

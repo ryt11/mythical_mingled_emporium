@@ -20,7 +20,6 @@ FactoryGirl.define do
   factory :order do
     user
     total '100.0'
-    status 'completed'
     creatures []
     factory :order_with_diff_totals do
       sequence :total do |t|
