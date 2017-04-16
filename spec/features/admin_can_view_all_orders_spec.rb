@@ -37,22 +37,30 @@ RSpec.feature 'Admin orders' do
     end
 
     scenario 'Filter orders by status type' do
-      click_on 'Paid'
+      within('.filters') do
+        click_on 'Paid'
+      end
 
       expect(page).to have_link("Order #: #{orders[4].id}")
       expect(page).to_not have_link("Order #: #{orders[0].id}")
 
-      click_on 'Cancelled'
+      within('.filters') do
+        click_on 'Cancelled'
+      end
 
       expect(page).to have_link("Order #: #{orders[8].id}")
       expect(page).to_not have_link("Order #: #{orders[4].id}")
 
-      click_on 'Completed'
+      within('.filters') do
+        click_on 'Completed'
+      end
 
       expect(page).to have_link("Order #: #{orders[9].id}")
       expect(page).to_not have_link("Order #: #{orders[8].id}")
 
-      click_on 'All'
+      within('.filters') do
+        click_on 'All'
+      end
 
       expect(page).to have_link("Order #: #{orders[9].id}")
       expect(page).to have_link("Order #: #{orders[8].id}")
@@ -61,7 +69,7 @@ RSpec.feature 'Admin orders' do
     end
 
     scenario 'Update order status through links' do
-      within 'order-<%= order[1].id%>' do
+      within "tr#order-#{orders[1].id}" do
         expect(page).to have_link 'Cancel'
         expect(page).to have_content 'Status: Ordered'
 
@@ -70,19 +78,20 @@ RSpec.feature 'Admin orders' do
         expect(current_path).to eq orders_path
         expect(page).to have_content 'Status: Paid'
 
-        expect(order[1].status).to eq 'paid'
+        expect(orders[1].status).to eq 'paid'
       end
 
-      within 'order-<%= order[2].id%>' do
+
+      within "tr#order-#{orders[2].id}" do
         click_on 'Cancel'
 
         expect(current_path).to eq orders_path
         expect(page).to have_content 'Status: Cancelled'
 
-        expect(order[2].status).to eq 'cancelled'
+        expect(orders[2].status).to eq 'cancelled'
       end
 
-      within 'order-<%= order[4].id%>' do
+      within "tr#order-#{orders[4].id}" do
         expect(page).to have_link 'Cancel'
         expect(page).to have_content 'Status: Paid'
 
@@ -91,23 +100,23 @@ RSpec.feature 'Admin orders' do
         expect(current_path).to eq orders_path
         expect(page).to have_content 'Status: Completed'
 
-        expect(order[4].status).to eq 'completed'
+        expect(orders[4].status).to eq 'completed'
       end
 
-      within 'order-<%= order[5].id%>' do
+      within "tr#order-#{orders[5].id}" do
         click_on 'Cancel'
 
         expect(current_path).to eq orders_path
 
-        expect(order[5].status).to eq 'cancelled'
+        expect(orders[5].status).to eq 'cancelled'
       end
 
-      within 'order-<%= order[7].id%>' do
+      within "tr#order-#{orders[7].id}" do
         expect(page).to_not have_link 'Cancel'
         expect(page).to_not have_link 'Mark as completed'
       end
 
-      within 'order-<%= order[9].id%>' do
+      within "tr#order-#{orders[9].id}" do
         expect(page).to_not have_link 'Cancel'
         expect(page).to_not have_link 'Mark as completed'
       end
