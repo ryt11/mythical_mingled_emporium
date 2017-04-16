@@ -18,18 +18,17 @@ RSpec.feature 'Admin can modify her account' do
 
       apc = admin.password_confirmation
 
-      expect(current_path).to eq(edit_admin_path)
-      expect(find_field('username').value).to eq admin.username
-      expect(find_field('email').value).to eq admin.email
-      expect(find_field('password').value).to eq admin.password
-      expect(find_field('password_confirmation').value).to eq apc
+      expect(current_path).to eq(admin_edit_path)
+      expect(find_field('user[username]').value).to eq admin.username
+      expect(find_field('user[email]').value).to eq admin.email
 
-      fill_in 'admin[username]', with: 'WJEJJKERWK'
+      fill_in 'user[username]', with: 'STINKPETER'
 
-      click_on 'Update Info'
+      click_on 'Update User'
+
 
       expect(current_path).to eq(admin_dashboard_path)
-      expect(page).to have_content('Username: WJEJJKERWK')
+      expect(page).to have_content('Username: STINKPETER')
     end
 
     scenario 'admin cannot modify another users info' do
