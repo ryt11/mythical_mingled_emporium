@@ -8,24 +8,46 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   </head>
   <body>
-    <nav>
-      <div class="nav-wrapper">
-        <a href="/" class="brand-logo left">Mythical Mingled Emporium</a>
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
-          <% if current_user %>
-          <li><a class='dropdown-button' href="#!" data-activates='dropdown1'><%= current_user.username %><i class='material-icons left '>face</i></a></li>
-          <% end %>
-          <li><a href="/cart"><i class="material-icons left">shopping_cart</i>View Cart</a></li>
-        </ul>
+    <header>
+      <ul id="dropdown1" class="dropdown-content">
+        <li><a href="/dashboard"><i class='material-icons left'>dashboard</i>Dashboard</a></li>
+        <li><a href="/orders"><i class='material-icons left'>av_timer</i>Past Orders</a></li>
+        <li class="divider"></li>
+        <li> <%= link_to logout_path, method: "delete" do %><i class='material-icons left'>pan_tool</i>Logout</a> <% end %></li>
+      </ul>
+      <nav>
+        <div class="nav-wrapper">
+          <a href="/" class="brand-logo left">Mythical Mingled Emporium</a>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <% if current_user %>
+            <li><a class='dropdown-button' data-beloworigin="true" data-constrainWidth='false' href="#!" data-activates='dropdown1'><%= current_user.username %><i class='material-icons left '>face</i></a></li>
+            <% end %>
+            <li><a href="/cart"><i class="material-icons left">shopping_cart</i>View Cart</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <div class="flash">
+        <% flash.each do |type, message| %>
+        <%= content_tag :div, message.html_safe, class: type %>
+        <% end %>
       </div>
-    </nav>
-    <div class="flash">
-      <% flash.each do |type, message| %>
-      <%= content_tag :div, message.html_safe, class: type %>
-      <% end %>
-    </div>
-    <div class="container">
       <%= yield %>
-    </div>
+    </main>
+
+    <footer class="page-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col l4 s12">
+            <a class="grey-text text-lighten-3" href="#!">Home</a>
+          </div>
+          <div class="col l4 offset-l2 s12">
+            <a class="grey-text text-lighten-3" href="#!">Link 1</a>
+          </div>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
