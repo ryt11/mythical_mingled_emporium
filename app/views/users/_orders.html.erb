@@ -7,6 +7,12 @@
       Ordered on: <%= order.created_at.strftime('%b %e, %l:%M %p') %>
       <br>
       Total: <%= number_to_currency order.total %>
+      <br>
+      Status: <%= order.status.capitalize %>
+      <br>
+      <% if order.paid? || order.ordered? %>
+      <%= link_to "Cancel", order_path(order), method: :put %>
+      <% end %>
     </tr>
   <% end %>
 </table>
