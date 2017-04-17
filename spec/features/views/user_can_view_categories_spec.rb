@@ -6,7 +6,7 @@ RSpec.feature 'User can view categories' do
     before do
       @category1, @category2 = create_list(:category, 2)
       @creatures = create_list(:creature, 3)
-      category1.creatures << creatures[0, 1]
+      category1.creatures << creatures[0..1]
       category2.creatures << creatures.last
     end
 
@@ -18,20 +18,20 @@ RSpec.feature 'User can view categories' do
       expect(current_path).to eq '/categories'
 
       within "#category-#{category1.id}" do
-        within '.creature-card:first' do
-          expect(page).to have_selector "#creature-#{creatures.first.id}"
+        within "#creature-#{creatures.first.id}" do
+          expect(page).to have_selector '.creature-card'
         end
 
-        within '.creature-card:last' do
-          expect(page).to have_selector "#creature-#{creatures[1].id}"
+        within "#creature-#{creatures[1].id}" do
+          expect(page).to have_selector '.creature-card'
         end
 
         expect(page).to_not have_selector "#creature-#{creatures.last.id}"
       end
 
       within "#category-#{category2.id}" do
-        within '.creature-card' do
-          expect(page).to have_selector "#creature-#{creatures.last.id}"
+        within "#creature-#{creatures.last.id}" do
+          expect(page).to have_selector '.creature-card'
         end
 
         expect(page).to_not have_selector "#creature-#{creatures.first.id}"
