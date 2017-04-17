@@ -19,8 +19,20 @@ body {
 
 main {
   flex: 1 0 auto;
+  background: url('morning_beasts.jpg') center / cover ;
 }
 
 .pad-links {
   padding-left: 50px;
+}
+
+.card.small {
+  background-color: #DCDCDC;
+}
+.card.small:hover {
+  background-color: #425B5A;
+}
+.category_name {
+  font-size: 36px;
+  margin-left: 50px; 
 }
