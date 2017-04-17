@@ -1,8 +1,4 @@
-<% if current_user  %>
-  <h1>Welcome, <%= @user.username %>!</h1>
-<% else %>
-  <h1>Welcome!</h1>
-<% end %>
+<%= print_welcome(@user) %>
 
 <%= button_to 'Shop', categories_path, method: :get, class: 'shop' %>
 <% unless current_user  %>
