@@ -13,4 +13,19 @@ RSpec.feature 'User can visit a landing page' do
       expect(page).to have_link 'Create account'
     end
   end
+
+  context 'The user is logged in' do
+    scenario 'The user visits the root path' do
+      user = create :user
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+
+      within 'h1' do
+        expect(page).to have_content "Welcome, #{user.username}!"
+      end
+
+      expect(page).to have_button 'Shop'
+      expect(page).to_not have_button 'Login'
+      expect(page).to_not have_link 'Create account'
+    end
+  end
 end
