@@ -15,6 +15,6 @@
  */
 
 @import 'materialize/components/color';
-$primary-color: color('blue', 'lighten-2') !default;
-$secondary-color: color('orange', 'lighten-2') !default;
+$primary-color: color('indigo', 'darken-4') !default;
+$secondary-color: color('orange', 'darken-3') !default;
 @import 'materialize';
