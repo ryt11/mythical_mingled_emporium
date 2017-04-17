@@ -6,7 +6,7 @@ RSpec.feature 'User can visit a landing page' do
       visit root_path
 
       within 'h1' do
-        expect(page).to have_content 'Welcome'
+        expect(page).to have_content 'Welcome!'
       end
       expect(page).to have_button 'Shop'
       expect(page).to have_button 'Login'
@@ -18,6 +18,8 @@ RSpec.feature 'User can visit a landing page' do
     scenario 'The user visits the root path' do
       user = create :user
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+
+      visit root_path
 
       within 'h1' do
         expect(page).to have_content "Welcome, #{user.username}!"
