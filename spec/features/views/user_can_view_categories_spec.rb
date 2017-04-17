@@ -37,8 +37,6 @@ RSpec.feature 'User can view categories' do
         expect(page).to_not have_selector "#creature-#{creatures.first.id}"
         expect(page).to_not have_selector "#creature-#{creatures[1].id}"
       end
-
-      with_tag('.creature-card', count: 1)
     end
   end
 end
