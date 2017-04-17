@@ -10,3 +10,17 @@
 	bottom: 10px;
   left: 50px;
 }
+
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
+main {
+  flex: 1 0 auto;
+}
+
+.pad-links {
+  padding-left: 50px;
+}
