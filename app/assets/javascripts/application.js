@@ -18,13 +18,15 @@
 
 $(".dropdown-button").dropdown();
 
-// Initialize collapse button
 $(".button-collapse").sideNav();
-// Initialize collapsible (uncomment the line below if you use the dropdown variation)
-//$('.collapsible').collapsible();
-// Show sideNav
-$('.button-collapse').sideNav('show');
-// Hide sideNav
-$('.button-collapse').sideNav('hide');
-// Destroy sideNav
-$('.button-collapse').sideNav('destroy');
+/* Set the width of the side navigation to 250px */
+// function openNav() {
+//     document.getElementById("mySidenav").style.width = "250px";
+//     document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+// }
+//
+// /* Set the width of the side navigation to 0 */
+// function closeNav() {
+//     document.getElementById("mySidenav").style.width = "0";
+//     document.body.style.backgroundColor = "white";
+// }
