@@ -18,6 +18,7 @@ Rails.application.routes.draw do
     get '/users', to: 'users#index', as: 'users'
     get '/orders', to: 'orders#index', as: 'orders'
     put '/order/:id', to: 'orders#update', as: 'order'
+    resources :creatures, except: [:destroy]
   end
 
   get '/dashboard', to: 'users#show'
