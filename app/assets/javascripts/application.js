@@ -15,25 +15,3 @@
 //= require turbolinks
 //= require materialize-sprockets
 //= require_tree .
-
-$(".dropdown-button").dropdown();
-
-$(".button-collapse").sideNav();
-
-$(document).ready(function(){
-    $(".button-collapse").sideNav();
-    $('.parallax').parallax();
-    $(".dropdown-button").dropdown({
-        hover: false
-    });
-});
-
-// (function($){
-//   $(function(){
-//
-//     $('.button-collapse').sideNav();
-//     $('.carousel').carousel();
-//
-//
-//   }); // end of document ready
-// })(jQuery); // end of jQuery name space
