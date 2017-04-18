@@ -30,7 +30,7 @@
             <li><a href="/creatures">Shop all Creatures</a></li>
             <li><a href="/categories">Shop by Category</a>
               <% Category.all.each do |category| %>
-                <ul><%= link_to category.name, category_path(category) %></ul>
+                <li class="side-nav-cats"><%= link_to "-" + category.name, category_path(category.name) %></li>
               <% end %>
             </li>
           </ul>

@@ -35,8 +35,8 @@ RSpec.feature 'Guest user cart functionality' do
     expect(page).to have_content("Breed: #{creature2.breed}")
 
     click_on 'Logout'
-
-    expect(page).to have_link('Login')
-    expect(page).to_not have_link('Logout')
+    
+    expect(page).to have_button('Login')
+    expect(page).to_not have_button('Logout')
   end
 end

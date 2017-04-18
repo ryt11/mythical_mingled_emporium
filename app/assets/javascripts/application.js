@@ -20,13 +20,20 @@ $(".dropdown-button").dropdown();
 
 $(".button-collapse").sideNav();
 
-(function($){
-  $(function(){
-
-    $('.button-collapse').sideNav();
-
-  }); // end of document ready
-})(jQuery); // end of jQuery name space
-
 $(document).ready(function(){
-      $('.carousel').carousel();
+    $(".button-collapse").sideNav();
+    $('.parallax').parallax();
+    $(".dropdown-button").dropdown({
+        hover: false
+    });
+});
+
+// (function($){
+//   $(function(){
+//
+//     $('.button-collapse').sideNav();
+//     $('.carousel').carousel();
+//
+//
+//   }); // end of document ready
+// })(jQuery); // end of jQuery name space
