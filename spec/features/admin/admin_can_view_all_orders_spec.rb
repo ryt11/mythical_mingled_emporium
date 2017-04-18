@@ -20,7 +20,9 @@ RSpec.feature 'Admin orders' do
 
       expect(current_path).to eq admin_dashboard_path
 
-      click_on 'Orders'
+      within '.admin-dashboard' do
+        click_on 'Orders'
+      end
 
       expect(current_path).to eq admin_orders_path
     end
