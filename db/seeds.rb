@@ -21,103 +21,103 @@ puts 'Categories created'
 Creature.create!(breed: 'Bab Finch',
                  description: 'Wild and free',
                  price: (rand(75) + 10).to_s,
-                 image_url: File.join(Rails.root, '/app/assets/images/bab-finch.jpg'))
+                 image_url: 'bab-finch.jpg')
 Creature.create!(breed: 'Llama Bun',
                  description: 'Wild and free',
                  price: (rand(75) + 10).to_s,
-                 image_url: File.join(Rails.root, '/app/assets/images/bama.jpeg'))
+                 image_url: 'bama.jpeg')
 Creature.create!(breed: 'Camel Retriever',
                  description: 'Wild and free',
                  price: (rand(75) + 10).to_s,
-                 image_url: File.join(Rails.root, '/app/assets/images/camel-retriever.jpg'))
+                 image_url: 'camel-retriever.jpg')
 Creature.create!(breed: 'Teagle',
                  description: 'Wild and free',
                  price: (rand(75) + 10).to_s,
-                 image_url: File.join(Rails.root, '/app/assets/images/eagle-terrier.jpg'))
+                 image_url: 'eagle-terrier.jpg')
 Creature.create!(breed: 'Quackaphant',
                  description: 'Wild and free',
                  price: (rand(75) + 10).to_s,
-                 image_url: File.join(Rails.root, '/app/assets/images/ele-duck.jpg'))
+                 image_url: 'ele-duck.jpg')
 Creature.create!(breed: 'Frig',
                  description: 'Wild and free',
                  price: (rand(75) + 10).to_s,
-                 image_url: File.join(Rails.root, '/app/assets/images/frig.jpg'))
+                 image_url: 'frig.jpg')
 Creature.create!(breed: 'Crog',
                  description: 'Wild and free',
                  price: (rand(75) + 10).to_s,
-                 image_url: File.join(Rails.root, '/app/assets/images/frog-o-dile.jpg'))
+                 image_url: 'frog-o-dile.jpg')
 Creature.create!(breed: 'Scrog',
                  description: 'Wild and free',
                  price: (rand(75) + 10).to_s,
-                 image_url: File.join(Rails.root, '/app/assets/images/frog-pion.jpg'))
+                 image_url: 'frog-pion.jpg')
 Creature.create!(breed: 'Gorillaphant',
                  description: 'Wild and free',
                  price: (rand(75) + 10).to_s,
-                 image_url: File.join(Rails.root, '/app/assets/images/gorillaphant.jpg'))
+                 image_url: 'gorillaphant.jpg')
 Creature.create!(breed: 'Guinea Lion',
                  description: 'Wild and free',
                  price: (rand(75) + 10).to_s,
-                 image_url: File.join(Rails.root, '/app/assets/images/guinea-lion.jpg'))
+                 image_url: 'guinea-lion.jpg')
 Creature.create!(breed: 'Hork',
                  description: 'Wild and free',
                  price: (rand(75) + 10).to_s,
-                 image_url: File.join(Rails.root, '/app/assets/images/hork.jpg'))
+                 image_url: 'hork.jpg')
 Creature.create!(breed: 'Cowgaroo',
                  description: 'Wild and free',
                  price: (rand(75) + 10).to_s,
-                 image_url: File.join(Rails.root, '/app/assets/images/kow.jpeg'))
+                 image_url: 'kow.jpeg')
 Creature.create!(breed: 'Lion Jacket',
                  description: 'Wild and free',
                  price: (rand(75) + 10).to_s,
-                 image_url: File.join(Rails.root, '/app/assets/images/lion-jacket.jpg'))
+                 image_url: 'lion-jacket.jpg')
 Creature.create!(breed: 'Elezard',
                  description: 'Wild and free',
                  price: (rand(75) + 10).to_s,
-                 image_url: File.join(Rails.root, '/app/assets/images/lizardphant.jpg'))
+                 image_url: 'lizardphant.jpg')
 Creature.create!(breed: 'Pig Bull',
                  description: 'Wild and free',
                  price: (rand(75) + 10).to_s,
-                 image_url: File.join(Rails.root, '/app/assets/images/pig-bull.jpg'))
+                 image_url: 'pig-bull.jpg')
 Creature.create!(breed: 'Chig',
                  description: 'Wild and free',
                  price: (rand(75) + 10).to_s,
-                 image_url: File.join(Rails.root, '/app/assets/images/pimp.jpg'))
+                 image_url: 'pimp.jpg')
 Creature.create!(breed: 'Pugrilla',
                  description: 'Wild and free',
                  price: (rand(75) + 10).to_s,
-                 image_url: File.join(Rails.root, '/app/assets/images/pugrilla.jpg'))
+                 image_url: 'pugrilla.jpg')
 Creature.create!(breed: 'Punny',
                  description: 'Wild and free',
                  price: (rand(75) + 10).to_s,
-                 image_url: File.join(Rails.root, '/app/assets/images/punny.jpg'))
+                 image_url: 'punny.jpg')
 Creature.create!(breed: 'Rhinaroo',
                  description: 'Wild and free',
                  price: (rand(75) + 10).to_s,
-                 image_url: File.join(Rails.root, '/app/assets/images/rhinaroo.jpeg'))
+                 image_url: 'rhinaroo.jpeg')
 Creature.create!(breed: 'Shat',
                  description: 'Wild and free',
                  price: (rand(75) + 10).to_s,
-                 image_url: File.join(Rails.root, '/app/assets/images/shark-cat.jpg'))
+                 image_url: 'shark-cat.jpg')
 Creature.create!(breed: 'Sharkopotamus',
                  description: 'Wild and free',
                  price: (rand(75) + 10).to_s,
-                 image_url: File.join(Rails.root, '/app/assets/images/sharkopotamus.jpg'))
+                 image_url: 'sharkopotamus.jpg')
 Creature.create!(breed: 'Sherbil',
                  description: 'Wild and free',
                  price: (rand(75) + 10).to_s,
-                 image_url: File.join(Rails.root, '/app/assets/images/sherbil.jpg'))
+                 image_url: 'sherbil.jpg')
 Creature.create!(breed: 'Durtle',
                  description: 'Wild and free',
                  price: (rand(75) + 10).to_s,
-                 image_url: File.join(Rails.root, '/app/assets/images/tort-duck.jpg'))
+                 image_url: 'tort-duck.jpg')
 Creature.create!(breed: 'Ursadile',
                  description: 'Wild and free',
                  price: (rand(75) + 10).to_s,
-                 image_url: File.join(Rails.root, '/app/assets/images/ursadile.jpg'))
+                 image_url: 'ursadile.jpg')
 Creature.create!(breed: 'Zebrocerous',
                  description: 'Wild and free',
                  price: (rand(75) + 10).to_s,
-                 image_url: File.join(Rails.root, '/app/assets/images/zebrocerous.jpg'))
+                 image_url: 'zebrocerous.jpg')
 
 Creature.all.each do |creature|
   creature.categories << Category.all.sample
