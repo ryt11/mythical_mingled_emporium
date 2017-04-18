@@ -2,9 +2,9 @@ DatabaseCleaner.strategy = :truncation
 DatabaseCleaner.clean
 
 admin = User.create!(username: 'admin',
-                    email: 'admin@admin.com',
-                    password: 'admin',
-                    password_confirmation: 'admin')
+                     email: 'admin@admin.com',
+                     password: 'admin',
+                     password_confirmation: 'admin')
 user = User.create!(username: 'user',
                     email: 'user@user.com',
                     password: 'user',
@@ -128,7 +128,7 @@ puts 'Creatures associated with a category'
 STATUSES = %w(ordered paid cancelled completed)
 10.times do
   admin.orders.create!(total: rand(1000) + 1,
-                      status: STATUSES.sample)
+                       status: STATUSES.sample)
   user.orders.create!(total: rand(1000) + 1,
                       status: STATUSES.sample)
 end
@@ -136,7 +136,9 @@ end
 puts 'Orders created'
 
 100.times do
-  OrderCreature.create!(order: Order.all.sample, creature: Creature.all.sample, quantity: rand(5) + 1)
+  OrderCreature.create!(order: Order.all.sample,
+                        creature: Creature.all.sample,
+                        quantity: rand(5) + 1)
 end
 
 puts 'OrderCreatures created'
