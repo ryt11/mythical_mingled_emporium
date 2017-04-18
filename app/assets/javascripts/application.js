@@ -19,14 +19,11 @@
 $(".dropdown-button").dropdown();
 
 $(".button-collapse").sideNav();
-/* Set the width of the side navigation to 250px */
-// function openNav() {
-//     document.getElementById("mySidenav").style.width = "250px";
-//     document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
-// }
-//
-// /* Set the width of the side navigation to 0 */
-// function closeNav() {
-//     document.getElementById("mySidenav").style.width = "0";
-//     document.body.style.backgroundColor = "white";
-// }
+
+(function($){
+  $(function(){
+
+    $('.button-collapse').sideNav();
+
+  }); // end of document ready
+})(jQuery); // end of jQuery name space
