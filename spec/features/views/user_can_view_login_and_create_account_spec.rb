@@ -28,15 +28,15 @@ RSpec.feature 'Visitor can view login page and create account' do
 
       expect(current_path).to eq dashboard_path
       within('div.nav-wrapper') do
-        expect(page).to have_content('Logged in as Billybob')
+        expect(page).to have_link('Billybobface')
       end
 
       within('div.profile-info') do
         expect(page).to have_content('Username: Billybob')
         expect(page).to have_content('Email: billybob@bbc.com')
       end
-      expect(page).to_not have_button('Login')
-      expect(page).to have_button('Logout')
+      expect(page).to_not have_link('Login')
+      expect(page).to have_link('Logout')
     end
 
     scenario 'User enters invalid credentials' do

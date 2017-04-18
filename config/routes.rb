@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   resources :creatures, only: [:index, :show]
   resources :categories, only: [:index]
-  resources :orders, only: [:index, :show, :create]
+  resources :orders, only: [:index, :show, :create, :update]
   resource :cart, only: [:show, :create, :update, :destroy]
   resources :users, only: [:new, :create]
 
@@ -18,6 +18,7 @@ Rails.application.routes.draw do
     get '/users', to: 'users#index', as: 'users'
     get '/orders', to: 'orders#index', as: 'orders'
     put '/order/:id', to: 'orders#update', as: 'order'
+    resources :creatures, except: [:destroy]
   end
 
   get '/dashboard', to: 'users#show'

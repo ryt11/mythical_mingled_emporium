@@ -19,11 +19,13 @@ body {
 
 main {
   flex: 1 0 auto;
+  background: url('morning_beasts.jpg') center / cover ;
 }
 
 .pad-links {
   padding-left: 50px;
 }
+
 .side-nav .userView {
 	padding: 16px 32px 0px 32px;
 }
@@ -37,4 +39,15 @@ main {
 	background: -webkit-linear-gradient(45deg, #000000 0%,#45484d 100%); /* Chrome10-25,Safari5.1-6 */
 	background: linear-gradient(45deg, #000000 0%,#45484d 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#45484d',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+
+.card.small {
+  background-color: #DCDCDC;
+}
+.card.small:hover {
+  background-color: #425B5A;
+}
+.category_name {
+  font-size: 36px;
+  margin-left: 50px;
 }
