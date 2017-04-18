@@ -17,30 +17,24 @@
       </ul>
       <nav>
         <div class="nav-wrapper">
-  <a href="#" data-activates="slide-out" class="button-collapse show-on-large"><i class="material-icons">menu</i></a>
-
-
-
-
+          <!-- Sidenav Button -->
+          <a href="#" data-activates="slide-out" class="button-collapse show-on-large"><i class="material-icons">menu</i></a>
           <!-- Sidenav Stuff -->
           <ul id="slide-out" class="side-nav">
             <li><div class="userView">
               <div class="background">
-                <%= image_tag 'lionowl.jpg' %> %>
               </div>
-              <a href="#!user"><img class="circle" src= ""></a>
-              <a href="#!name"><span class="white-text name">John Doe</span></a>
-              <a href="#!email"><span class="white-text email">jdandturk@gmail.com</span></a>
+              <span class="white-text name"> <%= current_user ? current_user.username : 'Guest' %> </span>
+              <span class="white-text email"><%= current_user ? current_user.email : '' %></span>
             </div></li>
-            <li><a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a></li>
-            <li><a href="#!">Second Link</a></li>
-            <li><div class="divider"></div></li>
-            <li><a class="subheader">Subheader</a></li>
-            <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
+            <li><a href="/creatures">Shop all Creatures</a></li>
+            <li><a href="/categories">Shop by Category</a>
+              <% Category.all.each do |category| %>
+                <ul><%= link_to category.name, category_path(category) %></ul>
+              <% end %>
+            </li>
           </ul>
           <!--  -->
-
-
           <a href="/" class="brand-logo left" alight='right'>Mythical Mingled Emporium</a>
           <ul id="nav-mobile" class="right hide-on-med-and-down">
             <% if current_user %>
